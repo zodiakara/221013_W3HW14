@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BINGO</title>
+    <style>
+      .mainBoard {
+        width: 100%;
+        margin-top: 5em;
+        margin-left: 2em;
+        margin-right: 2em;
+      }
+      .numbers {
+        display: inline-block;
+        width: 5%;
+        aspect-ratio: 1/1;
+        font-size: 2em;
+        text-align: center;
+        border-radius: 5%;
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>LET'S PLAY BINGO!!!</h1>
+    <h2></h2>
+    <button placeholder="choose your number" onclick="getRandomNum()">
+      choose your number
+    </button>
+    <span> <object type="number" id="numberField">...</object></span>
+    <div id="mainBoard"></div>
+
+    <script>
+      const boardNumbers = function () {
+        const board = document.getElementById("mainBoard");
+        for (let i = 0; i < 76; i++) {
+          const number = document.createElement("div");
+          const text = i + 1;
+          number.innerText = text;
+          board.appendChild(number);
+          number.classList.add("numbers");
+        }
+      };
+      console.log(boardNumbers());
+
+      function getRandomNum() {
+        return Math.floor(Math.random() * 76);
+      }
+    </script>
+  </body>
+</html>
